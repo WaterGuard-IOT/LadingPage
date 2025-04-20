@@ -1,17 +1,37 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("lang") || "es";
+  setLanguage(savedLang);
+
   AOS.init({
-    duration: 1000,   // duración en ms
+    duration: 1000,
     once: true,
   });
 });
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, 100);
+});
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth"
-    });
+
+    const targetId = this.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      const navbarHeight = document.querySelector("header").offsetHeight;
+      const elementTop = targetElement.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: elementTop - navbarHeight - 10, // ajusta los 10px si quieres más espacio
+        behavior: "smooth"
+      });
+    }
   });
 });
+
+
 
 function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
@@ -33,11 +53,21 @@ function setLanguage(lang) {
   localStorage.setItem("lang", lang);
   document.documentElement.lang = lang;
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('menu-toggle');
+  const navList = document.querySelector('.nav ul');
 
-document.addEventListener("DOMContentLoaded", function () {
-  const savedLang = localStorage.getItem("lang") || "es";
-  setLanguage(savedLang);
-  AOS.init();
+  // Abrir/cerrar menú
+  toggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+
+  // Cerrar menú al hacer clic en un enlace
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      navList.classList.remove('active');
+    });
+  });
 });
 
 const translations = {

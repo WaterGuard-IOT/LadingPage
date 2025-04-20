@@ -14,10 +14,13 @@
 <body>
 <!-- Header -->
 <header class="header" data-aos="fade-down" data-aos-delay="200">
-  <div class="container">
-    <div class="logo">WaterGuard</div>
+  <div class="container header-flex">
 
-    <nav class="nav">
+
+    <div class="logo">WaterGuard</div>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <nav class="nav" id="navbar">
       <ul>
         <li><a href="#inicio" data-i18n="nav_home">Inicio</a></li>
         <li><a href="#funcionalidades" data-i18n="nav_features">Funcionalidades</a></li>
@@ -26,27 +29,28 @@
         <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
       </ul>
     </nav>
-    <div class="cta">
-      <a href="#descarga" class="btn" data-i18n="download_app">Descargar App</a>
-    </div>
-    <div class="language-switcher">
-      <button onclick="setLanguage('es')">SP</button>
-      <button onclick="setLanguage('en')">EN</button>
+    <div class="right-header">
+      <div class="cta">
+        <a href="#descarga" class="btn" data-i18n="download_app">Descargar App</a>
+      </div>
+      <div class="language-switcher">
+        <button onclick="setLanguage('es')">SP</button>
+        <button onclick="setLanguage('en')">EN</button>
+      </div>
     </div>
   </div>
 </header>
 
+
+
 <!-- Seccion Hero -->
 <section id="inicio" class="hero" data-aos="fade-up">
-
   <div class="container">
     <h1 data-aos="zoom-in" data-i18n="hero_title">Controla y Cuida el Agua de tu Hogar</h1>
     <p data-aos="fade-up" data-aos-delay="200" data-i18n="hero_subtitle">Tecnología inteligente para el uso eficiente del agua, ahora con control de bombas automático.</p>
     <a href="#descarga" class="btn" data-aos="fade-up" data-aos-delay="400" data-i18n="download_now">Descargar Ahora</a>
   </div>
-
 </section>
-
 <!-- Seccion Funcionalidades -->
 <section id="funcionalidades" class="features container">
   <h2 data-aos="fade-up" data-i18n="features_title">Funcionalidades Principales</h2>
@@ -110,7 +114,7 @@
       <p data-i18n="stats_reduction">Reducción promedio del consumo de agua</p>
     </div>
     <div class="stat" data-aos="flip-left" data-aos-delay="300">
-      <h3>+500,000 L</h3>
+      <h3>+500,000L</h3>
       <p data-i18n="stats_liters">Litros de agua ahorrados por la comunidad</p>
     </div>
   </div>

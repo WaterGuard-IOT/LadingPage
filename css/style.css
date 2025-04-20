@@ -30,12 +30,22 @@ h1, h2, h3 {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 0 1rem;
 }
-
 .language-switcher {
   display: flex;
   gap: 0.5rem;
 }
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
 
 .language-switcher button {
   background-color: #0077cc;
@@ -49,12 +59,18 @@ h1, h2, h3 {
 header.header {
   background-color: #0077cc;
   color: white;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
 .header .container {
   display: flex;
   align-items: center;
@@ -63,6 +79,7 @@ header.header {
 }
 
 .logo {
+  flex: 1;
   font-size: 1.8rem;
   font-weight: bold;
 }
@@ -70,13 +87,20 @@ header.header {
 .nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem; /* separa los ítems */
+  padding: 0;
+  margin: 0;
 }
-
+.right-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 .nav a {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 .cta .btn {
@@ -497,15 +521,76 @@ section {
   color: #00bfff;
   text-decoration: none;
 }
+.download {
+  text-align: center;
+  padding: 5rem 1rem; /* Antes era 2rem */
+}
+.store-btn {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
 
+.download .store-buttons {
+  gap: 2rem;
+}
 @media (max-width: 768px) {
   .nav ul {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    background-color: #0077cc;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    display: none;
+    z-index: 1001;
   }
 
-  .cta {
-    text-align: center;
+  .nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
     margin-top: 1rem;
+  }
+
+  .cta,
+  .language-switcher {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cta .btn {
+    width: auto;
+    padding: 0.6rem 1.2rem;
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  .language-switcher {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .language-switcher button {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
   }
 }

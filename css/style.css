@@ -66,10 +66,8 @@ header.header {
 }
 .header-flex {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  align-items: center;
 }
 .header .container {
   display: flex;
@@ -94,7 +92,7 @@ header.header {
 .right-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem; /* o incluso más */
 }
 .nav a {
   color: white;
@@ -102,7 +100,9 @@ header.header {
   font-weight: 500;
   font-size: 0.95rem;
 }
-
+.cta {
+  margin-left: 2rem; /* Ajusta el valor si quieres más o menos separación */
+}
 .cta .btn {
   background-color: #00bfff;
   color: white;
@@ -112,17 +112,46 @@ header.header {
 }
 
 .hero {
-  background-color: #e0f7ff;
+  position: relative;
+  background: linear-gradient(to bottom right, #0077cc, #66ccff);
+  color: white;
+  padding: 6rem 1rem 10rem;
+  overflow: hidden;
   text-align: center;
-  padding: 3rem 1rem;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
-
+.hero-wave-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  background: url('img/hero-wave.png') no-repeat center bottom;
+  background-size: cover;
+  z-index: 1;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.floating-illustration {
+  position: absolute;
+  bottom: 5rem;
+  right: 10%;
+  width: 260px; /* Aumenta este valor para que se vea más grande */
+  max-width: 90vw; /* opcional: asegura que no se salga del viewport en móviles */
+  animation: float 4s ease-in-out infinite;
+  z-index: 3;
+}
 .hero .btn {
   display: inline-block;
   margin-top: 1rem;
@@ -450,7 +479,11 @@ header.header {
 .footer-links a:hover {
   text-decoration: underline;
 }
-
+.cta-language {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 .footer-social .social-icons a img {
   width: 24px;
   margin-right: 10px;
@@ -570,21 +603,21 @@ section {
     margin-top: 1rem;
   }
 
-  .cta,
-  .language-switcher {
+  .cta {
     display: flex;
     justify-content: center;
     width: 100%;
   }
 
   .cta .btn {
-    width: auto;
-    padding: 0.6rem 1.2rem;
-    margin: 0 auto;
-    font-size: 1rem;
+    margin-inline: auto;
+    text-align: center;
   }
 
   .language-switcher {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     gap: 1rem;
     margin-bottom: 1rem;
   }

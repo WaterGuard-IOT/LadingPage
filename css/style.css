@@ -567,6 +567,8 @@ section {
 .download .store-buttons {
   gap: 2rem;
 }
+
+
 @media (max-width: 768px) {
   .nav ul {
     flex-direction: column;
@@ -601,18 +603,19 @@ section {
     width: 100%;
     gap: 1rem;
     margin-top: 1rem;
+
   }
 
   .cta {
     display: flex;
     justify-content: center;
     width: 100%;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0; /* Ajusta el valor si quieres más o menos separación */
   }
 
-  .cta .btn {
-    margin-inline: auto;
-    text-align: center;
-  }
+
 
   .language-switcher {
     display: flex;

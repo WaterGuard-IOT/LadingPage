@@ -629,4 +629,17 @@ section {
     padding: 0.5rem 0.9rem;
     font-size: 0.9rem;
   }
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero, .container, .header, .footer, .cta, .menu-toggle {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
